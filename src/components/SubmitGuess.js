@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import { logAttempt } from '../actions/logInput'
 import { replaceLetter } from '../actions/correctGuesses'
 import { countUp } from '../actions/countWrong'
+import { declareLost } from '../actions/lostCondition'
+import { declareWon } from '../actions/winCondition'
 import { connect } from 'react-redux'
 import {wordToGuess} from './wordRepos'
 import './SubmitGuess.css'
@@ -10,6 +12,9 @@ import './SubmitGuess.css'
 export class SubmitGuess extends PureComponent {
 
   handleClick = () => {
+
+    
+
     let guess = document.getElementById('PlayerInputField').value.toUpperCase().slice(0, 1);
     this.props.logAttempt(guess)
 
