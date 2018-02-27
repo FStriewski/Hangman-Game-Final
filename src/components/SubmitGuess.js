@@ -13,7 +13,7 @@ export class SubmitGuess extends PureComponent {
 
   handleClick = () => {
 
-    
+
 
     let guess = document.getElementById('PlayerInputField').value.toUpperCase().slice(0, 1);
     this.props.logAttempt(guess)
@@ -28,7 +28,7 @@ export class SubmitGuess extends PureComponent {
 
   render() {
     return (
-      <div className="PlayerInput">
+      <div className="PlayerInpumapStateToPropst">
         <div className="SubmitLetter">Make a guess<input type="text" className="Input" id="PlayerInputField" placeholder="" onChange={this.handleClick} /></div>
       </div>
     )
