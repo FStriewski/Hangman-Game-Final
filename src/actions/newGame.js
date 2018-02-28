@@ -1,13 +1,12 @@
 import { NEW_GAME } from './types'
-import {wordToGuess, wordHidden} from '../components/wordRepos'
+//import {wordToGuess} from '../components/wordRepos'
 
-export const newGame = () => {
+export const newGame = (wordToGuess) => {
 
   return {
     type: NEW_GAME,
     payload: {
       wordToGuess,
-      wordHidden
     }
   }
 }

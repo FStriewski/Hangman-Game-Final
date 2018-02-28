@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import {wordToGuess} from './wordRepos'
 import { newGame } from '../actions/newGame'
 import './Statbox.css';
 
 class NewGameButton extends Component {
 
-  handleClick = () => { this.props.newGame()}
+
+  handleClick = () => { this.props.newGame(wordToGuess)}
 
   render() {
 
@@ -21,4 +23,4 @@ class NewGameButton extends Component {
   }
 }
 
-export default connect(null, { newGame})(NewGameButton)
+export default connect(null, {newGame})(NewGameButton)

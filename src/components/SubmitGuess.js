@@ -5,7 +5,7 @@ import { countUp } from '../actions/countWrong'
 import { declareLost } from '../actions/lostCondition'
 import { declareWon } from '../actions/winCondition'
 import { connect } from 'react-redux'
-import {wordToGuess} from './wordRepos'
+//import {wordToGuess} from './wordRepos'
 import './SubmitGuess.css'
 
 
@@ -13,16 +13,18 @@ export class SubmitGuess extends PureComponent {
 
   handleClick = () => {
 
-
-
+// Slim actions / put into one
+// Better use refs here
+// Make button small
     let guess = document.getElementById('PlayerInputField').value.toUpperCase().slice(0, 1);
     this.props.logAttempt(guess)
 
-    if (wordToGuess.includes(guess)){
+    if (this.props.newGame.wordToGuess.includes(guess)){
       this.props.replaceLetter(guess)
     } else {
       this.props.countUp()
     }
+    // Use value to and get rid of this by using state
     document.getElementById('PlayerInputField').value = ""
   };
 
@@ -35,4 +37,6 @@ export class SubmitGuess extends PureComponent {
   }
 }
 
-  export default connect(null, { logAttempt, replaceLetter, countUp  })(SubmitGuess)
+const mapStateToProps = ({ newGame }) => ({ newGame })
+
+  export default connect(mapStateToProps, { logAttempt, replaceLetter, countUp  })(SubmitGuess)

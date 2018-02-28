@@ -9,7 +9,7 @@ class Word extends Component {
   render() {
 
   //  let wordHidden = this.props.correctGuesses.wordHidden
-    let wordToGuessArray = this.props.correctGuesses.wordToGuess.split("")
+    let wordToGuessArray = this.props.newGame.wordToGuess.split("")
     let allGuesses = this.props.correctGuesses.correctLetters
 
     let display = wordToGuessArray.map(x => allGuesses.indexOf(x) < 0 ? "_" : x);
@@ -24,5 +24,5 @@ class Word extends Component {
   }
 }
 
-const mapStateToProps = ({ correctGuesses }) => ({ correctGuesses })
+const mapStateToProps = ({ correctGuesses, newGame }) => ({ correctGuesses, newGame })
 export default connect(mapStateToProps, {})(Word)
